@@ -1,0 +1,30 @@
+{
+  "name": "@flotara/app",
+  "private": true,
+  "workspaces": [
+    "apps/server",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "preinstall": "(cd packages/shared && yarn && yarn build)",
+    "prepare": "husky",
+    "start": "turbo run start"
+  },
+  "lint-staged": {
+    "package.json": "sort-package-json"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
+    "sort-package-json": "^2.10.1",
+    "turbo": "^2.2.3"
+  },
+  "packageManager": "yarn@1.22.22",
+  "volta": {
+    "node": "18.20.5",
+    "yarn": "1.22.22"
+  }
+}

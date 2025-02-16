@@ -1,0 +1,98 @@
+name: Server Checks
+
+on:
+  pull_request:
+    paths:
+      - 'apps/server/**'
+      - '.github/workflows/server-checks.yml'
+      - 'package.json'
+      - 'yarn.lock'
+
+jobs:
+  lint:
+    name: ESLint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install root dependencies
+        run: yarn install
+
+      - name: Install server dependencies
+        working-directory: apps/server
+        run: yarn install
+
+      - name: Run ESLint
+        working-directory: apps/server
+        run: yarn lint:check
+
+  format:
+    name: Prettier
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install root dependencies
+        run: yarn install
+
+      - name: Install server dependencies
+        working-directory: apps/server
+        run: yarn install
+
+      - name: Check formatting
+        working-directory: apps/server
+        run: yarn format:check
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install root dependencies
+        run: yarn install
+
+      - name: Install server dependencies
+        working-directory: apps/server
+        run: yarn install
+
+      - name: Build server
+        working-directory: apps/server
+        run: yarn build
+  
+  test:
+    name: Jest Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install root dependencies
+        run: yarn install
+
+      - name: Install server dependencies
+        working-directory: apps/server
+        run: yarn install
+
+      - name: Run tests
+        working-directory: apps/server
+        run: yarn test

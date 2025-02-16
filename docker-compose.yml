@@ -1,0 +1,25 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    shm_size: 4gb
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=flotara
+    ports:
+      - "8958:5432"
+
+  redis:
+    image: redis:alpine
+    restart: always
+    ports:
+      - "9301:6379"
+    volumes:
+      - redis:/data
+    command: redis-server --requirepass local-password --appendonly yes
+
+volumes:
+  postgres_data:
+    driver: local
+  redis:
+    driver: local

@@ -1,0 +1,29 @@
+{
+  "name": "@flotara/shared",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "author": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "lint": "run-p lint:*",
+    "lint:es": "eslint .",
+    "lint:types": "tsc --noEmit",
+    "lint-fix": "eslint . --fix",
+    "pack": "npm pack",
+    "prepublishOnly": "yarn build"
+  },
+  "dependencies": {
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.1",
+    "typescript": "^5.3.3"
+  },
+  "volta": {
+    "node": "18.20.5",
+    "yarn": "1.22.22"
+  }
+}
