@@ -1,2 +1,1 @@
-export const entitiesToReigster = [
-];
+export const entitiesToReigster = [];
