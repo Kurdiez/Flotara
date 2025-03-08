@@ -3,10 +3,8 @@ import { DatabaseModule } from '~/database/database.module';
 
 @Module({
   imports: [DatabaseModule],
-  controllers: [
-  ],
-  providers: [
-  ],
+  controllers: [],
+  providers: [],
   exports: [],
 })
 export class UserManagementModule {}
