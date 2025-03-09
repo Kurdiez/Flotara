@@ -3,10 +3,10 @@ name: Server Checks
 on:
   pull_request:
     paths:
-      - 'apps/server/**'
-      - '.github/workflows/server-checks.yml'
-      - 'package.json'
-      - 'yarn.lock'
+      - "apps/server/**"
+      - ".github/workflows/server-checks.yml"
+      - "package.json"
+      - "yarn.lock"
 
 jobs:
   lint:
@@ -18,7 +18,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: "23.8.0"
 
       - name: Install root dependencies
         run: yarn install
@@ -40,7 +40,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: "23.8.0"
 
       - name: Install root dependencies
         run: yarn install
@@ -62,7 +62,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: "23.8.0"
 
       - name: Install root dependencies
         run: yarn install
@@ -74,7 +74,7 @@ jobs:
       - name: Build server
         working-directory: apps/server
         run: yarn build
-  
+
   test:
     name: Jest Tests
     runs-on: ubuntu-latest
@@ -84,7 +84,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: "23.8.0"
 
       - name: Install root dependencies
         run: yarn install
