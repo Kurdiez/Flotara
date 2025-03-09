@@ -19,15 +19,15 @@ interface ShopifySession {
 @Entity('shopify_store_integrations')
 export class ShopifyStoreIntegration {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id!: string;
 
   @Column({ unique: true })
-  storeId: string;
+  storeId!: string;
 
   @Column({ type: 'json' })
-  session: ShopifySession;
+  session!: ShopifySession;
 
   @OneToOne(() => ShopifyStore, { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'storeId' })
-  store: ShopifyStore;
+  store?: ShopifyStore;
 }
