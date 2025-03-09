@@ -7,6 +7,7 @@ import {
 } from 'typeorm';
 import { ShopifyStore } from './store.entity';
 
+// shopify session type
 interface ShopifySession {
   id: string;
   shop: string;
