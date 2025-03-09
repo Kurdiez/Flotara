@@ -6,16 +6,8 @@ import {
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
+import { ShopifySession } from '~/commons/types/auth';
 import { StoreEntity } from './store.entity';
-
-// shopify session type
-interface ShopifySession {
-  id: string;
-  shop: string;
-  state: string;
-  isOnline: boolean;
-  accessToken: string;
-}
 
 @Entity('store_integration')
 export class StoreIntegrationEntity {
