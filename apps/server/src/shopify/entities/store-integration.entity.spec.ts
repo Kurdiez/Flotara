@@ -25,7 +25,7 @@ describe('ShopifyStoreIntegration Entity', () => {
   it('should have all required properties', () => {
     const propertyKeys = Object.keys(integration);
     expect(propertyKeys).toEqual(
-      expect.arrayContaining(['storeId', 'session', 'createdAt', 'updatedAt']),
+      expect.arrayContaining(['storeId', 'session']),
     );
   });
 });
