@@ -6,8 +6,8 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-@Entity('shopify_stores')
-export class ShopifyStore {
+@Entity('store')
+export class StoreEntity {
   @PrimaryGeneratedColumn('uuid')
   id!: string;
 

@@ -5,7 +5,7 @@ import {
   OneToOne,
   JoinColumn,
 } from 'typeorm';
-import { ShopifyStore } from './store.entity';
+import { StoreEntity } from './store.entity';
 
 // shopify session type
 interface ShopifySession {
@@ -16,8 +16,8 @@ interface ShopifySession {
   accessToken: string;
 }
 
-@Entity('shopify_store_integrations')
-export class ShopifyStoreIntegration {
+@Entity('store_integration')
+export class StoreIntegrationEntity {
   @PrimaryGeneratedColumn('uuid')
   id!: string;
 
@@ -27,7 +27,7 @@ export class ShopifyStoreIntegration {
   @Column({ type: 'json' })
   session!: ShopifySession;
 
-  @OneToOne(() => ShopifyStore, { onDelete: 'CASCADE' })
+  @OneToOne(() => StoreEntity, { onDelete: 'CASCADE', onUpdate: 'CASCADE' })
   @JoinColumn({ name: 'storeId' })
-  store?: ShopifyStore;
+  store?: StoreEntity;
 }
