@@ -1,9 +1,10 @@
 import {
-  Entity,
-  PrimaryGeneratedColumn,
   Column,
-  OneToOne,
+  Entity,
+  Index,
   JoinColumn,
+  OneToOne,
+  PrimaryGeneratedColumn,
 } from 'typeorm';
 import { StoreEntity } from './store.entity';
 
@@ -21,13 +22,17 @@ export class StoreIntegrationEntity {
   @PrimaryGeneratedColumn('uuid')
   id!: string;
 
-  @Column({ unique: true })
+  @Index()
+  @Column('uuid')
   storeId!: string;
 
   @Column({ type: 'json' })
   session!: ShopifySession;
 
-  @OneToOne(() => StoreEntity, { onDelete: 'CASCADE', onUpdate: 'CASCADE' })
+  @OneToOne(() => StoreEntity, (store) => store.integration, {
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
   @JoinColumn({ name: 'storeId' })
   store?: StoreEntity;
 }
