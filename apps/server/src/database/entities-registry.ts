@@ -1,4 +1,4 @@
-import { StoreEntity } from '../shopify/entities/store.entity';
-import { StoreIntegrationEntity } from '../shopify/entities/store-integration.entity';
+import { StoreIntegrationEntity } from './entities/store-integration.entity';
+import { StoreEntity } from './entities/store.entity';
 
 export const entitiesToReigster = [StoreEntity, StoreIntegrationEntity];
