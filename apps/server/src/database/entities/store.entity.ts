@@ -18,6 +18,10 @@ export class StoreEntity {
   @Column('varchar')
   shopifyStoreId!: string;
 
+  @Index({ unique: true })
+  @Column('varchar')
+  shopifyStoreDomain!: string;
+
   @CreateDateColumn()
   createdAt!: Date;
 
