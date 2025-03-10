@@ -11,6 +11,7 @@ import { AppController } from './app.controller';
 import { JobsModule } from './jobs/jobs.module';
 import { SystemGuard } from './system/auth/system.guard';
 import { UserManagementModule } from './user-management/user-management.module';
+import { SessionsModule } from './sessions/sessions.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { UserManagementModule } from './user-management/user-management.module';
     SystemModule,
     UserManagementModule,
     JobsModule,
+    SessionsModule,
   ],
   controllers: [AppController],
   providers: [
